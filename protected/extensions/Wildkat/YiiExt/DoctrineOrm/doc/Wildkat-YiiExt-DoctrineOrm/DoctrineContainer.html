@@ -1,0 +1,398 @@
+<html>
+<head>
+<title>Docs For Class DoctrineContainer</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">Wildkat-YiiExt-DoctrineOrm</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                              		  [ <a href="../classtrees_Wildkat-YiiExt-DoctrineOrm.html" class="menu">class tree: Wildkat-YiiExt-DoctrineOrm</a> ]
+		  [ <a href="../elementindex_Wildkat-YiiExt-DoctrineOrm.html" class="menu">index: Wildkat-YiiExt-DoctrineOrm</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_Wildkat-YiiExt-DoctrineOrm.html">Wildkat-YiiExt-DoctrineOrm</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../Wildkat-YiiExt-DoctrineOrm/_Wildkat---YiiExt---DoctrineOrm---DoctrineContainer.php.html">		DoctrineContainer.php
+		</a><br>
+			<a href="../Wildkat-YiiExt-DoctrineOrm/_DoctrineORMCommand.php.html">		DoctrineORMCommand.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../Wildkat-YiiExt-DoctrineOrm/DoctrineContainer.html">DoctrineContainer</a><br />
+	    		<a href="../Wildkat-YiiExt-DoctrineOrm/DoctrineOrmCommand.html">DoctrineOrmCommand</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: DoctrineContainer</h1>
+Source Location: /Wildkat/YiiExt/DoctrineOrm/DoctrineContainer.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre>\
+   |
+   --DoctrineContainer</pre><br />
+<div class="description">DoctrineContainer.</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+          <li>Kevin Bradwick &lt;<a href="mailto:kevin@wildk.at">kevin@wildk.at</a>&gt;</li>
+                        </ul>
+
+
+
+
+        
+            
+<h4>Version:</h4>
+<ul>
+  <li>Release: ##VERSION##</li>
+</ul>
+
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../Wildkat-YiiExt-DoctrineOrm/DoctrineContainer.html#var$cache">$cache</a></li>
+    <li><a href="../Wildkat-YiiExt-DoctrineOrm/DoctrineContainer.html#var$dbal">$dbal</a></li>
+    <li><a href="../Wildkat-YiiExt-DoctrineOrm/DoctrineContainer.html#var$entityManager">$entityManager</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../Wildkat-YiiExt-DoctrineOrm/DoctrineContainer.html#methodgetCache">getCache</a></li>
+    <li><a href="../Wildkat-YiiExt-DoctrineOrm/DoctrineContainer.html#methodgetConnection">getConnection</a></li>
+    <li><a href="../Wildkat-YiiExt-DoctrineOrm/DoctrineContainer.html#methodgetEntityManager">getEntityManager</a></li>
+    <li><a href="../Wildkat-YiiExt-DoctrineOrm/DoctrineContainer.html#methodinit">init</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line <a href="../__filesource/fsource_Wildkat-YiiExt-DoctrineOrm__WildkatYiiExtDoctrineOrmDoctrineContainer.php.html#a69">69</a>]<br />
+DoctrineContainer.<br /><br /><p>This Yii application component acts as a container for the Doctrine 2 ORM  library. Firstly, you will need to download the latest version of the Doctrine 2 ORM  library and place it inside ext.Wildkat.YiiExt.DoctrineOrm.vendors. The directory  layout should look like the following;</p><p><pre> DoctrineOrm/
+   - vendor/
+       - Doctrine/
+           - Common/
+           - DBAL/
+           - ORM/
+       - Symfony/</pre></p><p>Now, inside main.php config file, set up the component with 3 keys  (dbal, entityManager &amp; cache) where each key represents a configuration  set for each D2 component. For example;</p><p><pre> 'components' => array(
+     'doctrine' => array(
+ 	       'dbal' => array(
+ 		       [multiple dbal configurations here]
+ 		   ),
+ 		   'entityManager' => array(
+ 		       [multiple entity manager configurations here]
+ 		   ),
+ 		   'cache' => array(
+ 		       [multiple cache configurations here]
+ 		   ),
+     ),
+ )</pre></p><p>You must also set and alias for the Wildkat namespace. At the top of the main.php  configuration file, put  Yii::setPathOfAlias('Wildkat', realpath(dirname(__FILE__) . '/../extensions/Wildkat'));</p><p>For each D2 component, you can specify any number of configurations and index  them numerically or with a string. You can then access each configuration  through the component method e.g. Yii::app()-&gt;doctrine-&gt;getConnection('foo')  returns a dbal connection with a configuration index of 'foo'.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>author:</b>&nbsp;&nbsp;</td><td>Kevin Bradwick &lt;<a href="mailto:kevin@wildk.at">kevin@wildk.at</a>&gt;</td>
+  </tr>
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>Release: ##VERSION##</td>
+  </tr>
+  <tr>
+    <td><b>link:</b>&nbsp;&nbsp;</td><td><a href="http://www.wildk.at">http://www.wildk.at</a></td>
+  </tr>
+  <tr>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td>New</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$cache"></a>
+	<p></p>
+	<h4>$cache = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_Wildkat-YiiExt-DoctrineOrm__WildkatYiiExtDoctrineOrmDoctrineContainer.php.html#a88">88</a>]</p>
+  List of cache configurations. Each with the following options<br /><br /><p><ul><li>driver - (string) the driver e.g. ApcCache, MemcacheCache</li><li>namespace - (string) the cache namespace</li><li>servers - (array) used for memcache</li></ul></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$dbal"></a>
+	<p></p>
+	<h4>$dbal = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_Wildkat-YiiExt-DoctrineOrm__WildkatYiiExtDoctrineOrmDoctrineContainer.php.html#a77">77</a>]</p>
+  List of dbal configurations. Each configuration has the following options<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>link:</b>&nbsp;&nbsp;</td><td><a href="http://www.doctrine-project.org/docs/dbal/2.0/en/reference/configuration.html">See the Doctrine Documentation for an explanation of connection parameters</a></td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$entityManager"></a>
+	<p></p>
+	<h4>$entityManager = <span class="value"></span></h4>
+	<p>[line <a href="../__filesource/fsource_Wildkat-YiiExt-DoctrineOrm__WildkatYiiExtDoctrineOrmDoctrineContainer.php.html#a109">109</a>]</p>
+  List of entity manager configurations. Each with the following options<br /><br /><p><ul><li>connection - (string) the dbal config name</li><li>mappingDriver - (string) [AnnotationDriver, YamlDriver, XmlDriver]</li><li>mappingPaths - (array) An array of paths to find mapping information</li><li>mappingDriverOptions - (array) Additional mapping driver options
+   defined in and array and make reference to each of the drivers set
+   methods</li><li>metadataCache - (string) the cache configuration for metadata</li><li>queryCache - (string) the cache configuration for query conversions</li><li>resultCache - (string) the cache configuration for results</li><li>proxyDir - (string)the directory location for proxy classes</li><li>proxyNamespace - (string) the proxy namespace</li><li>entityNamespaces - (array) entity namespaces</li><li>autoGenerateProxyClasses - (bool) true false</li></ul></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>array</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+
+  <hr />
+	<a name="methodgetCache"></a>
+	<h3>method getCache <span class="smalllinenumber">[line <a href="../__filesource/fsource_Wildkat-YiiExt-DoctrineOrm__WildkatYiiExtDoctrineOrmDoctrineContainer.php.html#a177">177</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Doctrine\Common\Cache\AbstractCache getCache(
+[sting
+$name = 'default'])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns a cache instance. Drivers can be specified by their  fully qualified name e.g. Doctrine\Common\Cache\ArrayCache or by their  short name e.g. ArrayCache.<br /><br /><p>If driver class is a custom implementation, it must extend from  Doctrine\Common\Cache\AbstractCache.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>CException</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">sting&nbsp;&nbsp;</td>
+        <td><b>$name</b>&nbsp;&nbsp;</td>
+        <td>the cache name</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetConnection"></a>
+	<h3>method getConnection <span class="smalllinenumber">[line <a href="../__filesource/fsource_Wildkat-YiiExt-DoctrineOrm__WildkatYiiExtDoctrineOrmDoctrineContainer.php.html#a143">143</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Doctrine\DBAL\Connection getConnection(
+[sting
+$name = 'default'])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get an instance of a DBAL Connection<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">sting&nbsp;&nbsp;</td>
+        <td><b>$name</b>&nbsp;&nbsp;</td>
+        <td>the connection name</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetEntityManager"></a>
+	<h3>method getEntityManager <span class="smalllinenumber">[line <a href="../__filesource/fsource_Wildkat-YiiExt-DoctrineOrm__WildkatYiiExtDoctrineOrmDoctrineContainer.php.html#a297">297</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Doctrine\ORM\EntityManager getEntityManager(
+[string
+$name = 'default'])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns an entity manager<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>throws:</b>&nbsp;&nbsp;</td><td>CException</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$name</b>&nbsp;&nbsp;</td>
+        <td>the entity manager configuration name</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodinit"></a>
+	<h3>method init <span class="smalllinenumber">[line <a href="../__filesource/fsource_Wildkat-YiiExt-DoctrineOrm__WildkatYiiExtDoctrineOrmDoctrineContainer.php.html#a126">126</a>]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>null init(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Component initialization.<br /><br /><p>This method registers doctrine's autoloaders by pushing them on the  current autoloader stack.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>CApplicationComponent::init()</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Fri, 13 May 2011 14:16:00 +0100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
